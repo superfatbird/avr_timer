@@ -1,4 +1,4 @@
-/******************************************************************************** 
+/****************************************************************************** 
  *
  * This is a practice firmware to try timers/counters.
  *
@@ -6,22 +6,24 @@
  * of timer 0 in an ATMega328p/Arduino. The timer is set to CTC mode as section
  * 14.7.2 of ATMega328's datasheet indicates. 
  *
- * Reference Figure 14-1. 8-bit Timer/Counter Block diagram and the first sentence
- * in 14.7.2: In CTC mode, the OCR0A reg is used to manipulate the counter resolution.
- * That means the number in OCR0A determines the frequency of the output waveform.
+ * Reference Figure 14-1. 8-bit Timer/Counter Block diagram and the first sen-
+ * tence in 14.7.2: In CTC mode, the OCR0A reg is used to manipulate the
+ * counter resolution. That means the number in OCR0A determines the frequency
+ * of the output waveform.
  * 
- * If output from OC0B is wanted, the number in OCR0B should be no larger than the 
- * one in OCR0A, otherwise the counter will be reset when count to the number of 
- * OCR0A and will never count to the one in OCR0B.  
+ * If output from OC0B is wanted, the number in OCR0B should be no larger than
+ * the one in OCR0A, otherwise the counter will be reset when count to the
+ * number of OCR0A and will never count to the one in OCR0B.  
  *
- * In this firmware, the prescaler was set to 1 and OCR0A was set to 79, OCR0B was
- * set to 39. Two 100Khz waveform will be output from OC0A and OC0B seperately with
- * same frequency (determined by OCR0A) and a phase difference.
+ * In this firmware, the prescaler was set to 1 and OCR0A was set to 79, OCR0B
+ * was set to 39. Two 100Khz waveform will be output from OC0A and OC0B 
+ * seperately with same frequency (determined by OCR0A) and a phase difference.
  * 
  * License: CC BY-SA 4.0
  * Author:  Dapeng Zhang
  * 
- ********************************************************************************/ 
+ ******************************************************************************/
+
 #include <avr/io.h>
 void init_timer0(void);
 int main(void)
