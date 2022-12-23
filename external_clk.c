@@ -51,7 +51,7 @@ void init_timer1(void)
 	TCCR1B |= (1 << WGM12);
 	TCCR1A |= (0b01 << COM1A0);
 
-	OCR1A = 0x04;	// 2*N*(1+OCR2A), get 10Khz
+	OCR1A = 0x04;	// 2*N*(1+OCR1A), get 10Khz
 	
 	DDRB |= (1 << PB1); 	// set output for OC1A, digital pin 9 of arduino
 
